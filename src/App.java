@@ -13,7 +13,7 @@ public class App {
     public void startProgram() {
         queryInteger();
         setSum(number);
-        System.out.println(squaredString);
+        // System.out.println(squaredString);
         System.out.println("Sum is: " + getSum());
     }
 
@@ -25,16 +25,37 @@ public class App {
     }
 
     // No array approach
+    // public void setSum(int number) {
+    //     Scanner sc = new Scanner(System.in);
+    //     int num = 0;
+
+    //     System.out.print("Enter " + number + " integers: ");
+
+    //     for(int i = 1; i <= number; i++) {
+    //         num = sc.nextInt();
+    //         squaredString += num + " square is: " + (int) Math.pow(num, 2) + "\n";
+    //         sum += Math.pow(num, 2);
+    //     }
+    // }
+
+    // Array approach
     public void setSum(int number) {
         Scanner sc = new Scanner(System.in);
+        int[] numbers = new int[number];
+        int[] squaredNumbers = new int[number];
         int num = 0;
 
         System.out.print("Enter " + number + " integers: ");
 
-        for(int i = 1; i <= number; i++) {
+        for(int i = 0; i < number; i++) {
             num = sc.nextInt();
-            squaredString += num + " square is: " + (int) Math.pow(num, 2) + "\n";
-            sum += Math.pow(num, 2);
+            numbers[i] = num;
+            squaredNumbers[i] = (int) Math.pow(num, 2);
+        }
+
+        for(int i = 0; i < number; i++) {
+            System.out.println(numbers[i] + " squared is: " + squaredNumbers[i]);
+            sum += squaredNumbers[i];
         }
     }
 
